@@ -4,7 +4,7 @@
 /* ===== STARTER CSS BELOW FOR body AND p IS JUST AN EXAMPLE... YOU MAY DELETE IT ===== */
 
 
-body {
+/*body {
   background-color: rgba(162, 195, 230, 0.5);
 }
 
@@ -59,7 +59,88 @@ ul {
 
 #quiz_questions {
   text-align: left;
+} */
+
+/* General body styles */
+body {
+  background-color: #f4f4f4; /* Light neutral background */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Dark background for navbar */
+  padding: 20px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.title {
+  color: #fff; /* White title */
+  font-size: 2.5rem; /* Sleek font size */
+  margin: 0;
+  text-align: left;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aboutbutton button {
+  background-color: transparent;
+  border: 2px solid #fff; /* White border for the About button */
+  color: #fff; /* White text */
+  border-radius: 5px; /* Rectangular shape */
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.aboutbutton button:hover {
+  background-color: #B99AEA; /* Purple hover color */
+  color: #fff;
+}
+
+/* Play button styling */
+.play-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.firstbutton {
+  padding-bottom: 50px;
+}
+
+#playbutton {
+  background-color: #fff; /* Light blue for play button */
+  color: #333; /* Dark text color */
+  border: 2px solid #333; /* Border matching the background */
+  border-radius: 5px; /* Rectangular shape */
+  padding: 20px 40px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#playbutton:hover {
+  background-color: #4CAF50; /* Green hover color */
+  color: #fff;
+}
+
+/* Ensure text is left aligned for quiz questions */
+#quiz_questions {
+  text-align: left;
+}
+
 
 
 

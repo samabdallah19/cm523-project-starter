@@ -449,7 +449,7 @@ function getQuestions(){
 
         function displayQuestion(questionData) {
            // const questionElement = quizBody.querySelector(".question_one p");
-           // const questionContainer = quizBody.querySelector(".question_one");
+           // const questionContainer = quizBody.querySelector(".question_one"):
 
 
             questionData.forEach( item => {
