@@ -7,7 +7,7 @@ const submitButton = document.getElementById("submitbutton");
 //const mapImageContainer = document.getElementById("map_image_container");
 //const mapImage = document.getElementById("map_image");
 
-submitButton.style.display = "none";
+//submitButton.style.display = "none";
 
         const data = [
             {
@@ -17,7 +17,8 @@ submitButton.style.display = "none";
                     'b. Oregon, Nevada, Arizona',
                     'c. Washington, Oregon, Arizona',
                     'd. Washington, Oregon, New Mexico',
-                ]
+                ],
+                correctAnswer: 1
                 },
 
             {
@@ -27,9 +28,8 @@ submitButton.style.display = "none";
                     'b. California',
                     'c. Montana',
                     'd. Nevada',
-                ]
-                        //correct: 'a',
-                        //img: '../images/....'
+                ],
+                correctAnswer: 0
                    
             },
                     {
@@ -39,9 +39,8 @@ submitButton.style.display = "none";
                     'b. Oregon',
                     'c. Colorado',
                     'd. Montana',
-                        ]
-                       // correct: 'd',
-                       // img: 'images/Q4_MontanaLicensePlate.jpeg'
+                        ],
+                        correctAnswer: 3
                     },
                     {
                 question: 'Which two states are shaped nearly identically?',
@@ -50,9 +49,8 @@ submitButton.style.display = "none";
                     'b. Utah and Nevada',
                     'c. Colorado and Wyoming',
                     'd. Oregon and Idaho',
-                        ]
-                       //correct: 'c',
-                       // img: '../images/....'
+                        ],
+                        correctAnswer: 2
                     },
                     {
                  question: 'Which western state is the largest by land area in the contiguous United States?',
@@ -61,9 +59,8 @@ submitButton.style.display = "none";
                     'b. Nevada',
                     'c. Montana',
                     'd. Idaho',
-                 ]
-                      //  correct: 'a',
-                      //  img: '../images/....'
+                 ],
+                 correctAnswer: 0
                     },
                     {
                 question: 'Which state is not considered a midwestern state?',
@@ -71,35 +68,39 @@ submitButton.style.display = "none";
                     'a. Minnesota',
                     'b. Iowa',
                     'c. Wisconsin',
-                    'd.CORRECTPennsylvania',
-                ]
+                    'd. Pennsylvania',
+                ],
+                correctAnswer: 3
                     },
                     {
                 question: 'Which state has the most lakes in the contiguous United States?',
                 choices: [
                     'a. Michigan',
-                    'b. MinnesotaCORRECT',
+                    'b. Minnesota',
                     'c. Ohio',
                     'd. Indiana',
-                ]
+                ],
+                correctAnswer: 1
                     },
                     {
                     question: 'Which midwestern state shares the same first letter as its capital?',
                     choices: [
                         'a. Illinois',
-                        'b. IndianCORRECT',
+                        'b. Indiana',
                         'c. Missouri',
                         'd. North Dakota',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'Which state is home to Mount Rushmore?',
                     choices: [
                         'a. North Dakota',
-                        'b. South DakotaCORRECT',
+                        'b. South Dakota',
                         'c. Minnesota',
                         'd. Missouri',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                     {
                     question: 'Which state borders Michigan`s upper peninsula?',
@@ -107,60 +108,67 @@ submitButton.style.display = "none";
                         'a. Minnesota',
                         'b. Indiana',
                         'c. Ohio',
-                        'd. WisconsinCORRECT',
-                    ]
+                        'd. Wisconsin',
+                    ],
+                    correctAnswer: 3
                         },
                         {
                     question: 'Which two states are tied for bordering the most amount of states (8)?',
                     choices: [
                         'a. Alabama and Georgia',
-                        'b. Tennessee and MissouriCORRECT',
+                        'b. Tennessee and Missouri',
                         'c. Georgia and South Carolina',
                         'd. Massachusetts and New York',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: '14. North Carolina is bigger than South Carolina?',
                     choices: [
-                        'TrueCORRECT',
+                        'True',
                         'False',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
                         {
                     question: 'Which state is shaped like the letter `L`?',
                     choices: [
                         'a. Mississippi',
                         'b. South Carolina',
-                        'c. LouisianaCORRECT',
+                        'c. Louisiana',
                         'd. Alabama',
-                    ]
+                    ],
+                    correctAnswer: 2
                         },
                         {
                     question: 'Which of these pairs of states do not border each other?',
                     choices: [
                         'a. Pennsylvania and New Jersey',
-                        'b. Maine and MassachusettsCORRECT',
+                        'b. Maine and Massachusetts',
                         'c. Vermont and Massachusetts',
                         'd. Connecticut and New York',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'Which of these states does not border the ocean?',
                     choices: [
-                        'a. VermontCORRECT',
+                        'a. Vermont',
                         'b. Delaware',
                         'c. Maryland',
                         'd. New Hampshire',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
                         {
                     question: 'How many states are in New England?',
                     choices: [
                         'a. 8',
                         'b. 7',
-                        'c. 6CORRECT',
+                        'c. 6',
                         'd. 5',
-                    ]
+                    ],
+                    correctAnswer: 2
                         },
                         {
                     question: 'Which of these states does not border Pennsylvania?',
@@ -168,17 +176,19 @@ submitButton.style.display = "none";
                         'a. Maryland',
                         'b. West Virginia',
                         'c. Ohio',
-                        'd. VirginiaCORRECT',
-                    ]
+                        'd. Virginia',
+                    ],
+                    correctAnswer: 3
                         },
                         {
                     question: 'What is the largest state in the United States?',
                     choices: [
-                        'a. AlaskaCORRECT',
+                        'a. Alaska',
                         'b. California',
                         'c. Florida',
                         'd. Texas',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
 
                         {
@@ -186,27 +196,30 @@ submitButton.style.display = "none";
                     choices: [
                         'a. Kansas',
                         'b. Louisiana',
-                        'c. OklahomaCORRECT',
+                        'c. Oklahoma',
                         'd. Arkansas',
-                    ]
+                    ],
+                    correctAnswer: 2
                         },
                         {
                     question: 'Which four states make up the “four corners”?',
                     choices: [
                         'a. Utah, Arizona, California, Nevada',
-                        'b. Colorado, New Mexico, Utah, ArizonaCORRECT',
+                        'b. Colorado, New Mexico, Utah, Arizona',
                         'c. Colorado, Arizona, New Mexico, Oklahoma',
                         'd. Colorado, Arizona, New Mexico, Texas',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'Which of these states does not touch a Great Lake?',
                     choices: [
-                        'a. IowaCORRECT',
+                        'a. Iowa',
                         'b. Indiana',
                         'c. Wisconsin',
                         'd. Minnesota',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
                         {
                     question: 'Which of these states does not border Colorado?',
@@ -214,44 +227,49 @@ submitButton.style.display = "none";
                         'a. Kansas',
                         'b. Oklahoma',
                         'c. New Mexico',
-                        'd. ArizonaCORRECT',
-                    ]
+                        'd. Arizona',
+                    ],
+                    correctAnswer: 3
                         },
                         {
                     question: 'What is the easternmost state in the total United States?',
                     choices: [
                         'a. Maine',
-                        'b. AlaskaCORRECT',
+                        'b. Alaska',
                         'c. Florida',
                         'd. North Carolina',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'What is the westernmost state in the total United States?',
                     choices: [
                         'a. Maine',
-                        'b. AlaskaCORRECT',
+                        'b. Alaska',
                         'c. Florida',
                         'd. North Carolina<',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'What is the easternmost state in the contiguous United States?',
                     choices: [
-                        'a. MaineCORRECT',
+                        'a. Maine',
                         'b. Massachusetts',
                         'c. Florida',
                         'd. North Carolina',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
                         {
                     question: 'How many main islands make up the state of Hawai`i?',
                     choices: [
                         'a. 6',
                         'b. 7',
-                        'c. 8CORRECT',
+                        'c. 8',
                         'd. 9',
-                    ]
+                    ],
+                    correctAnswer: 2
                         },
                         {
                     question: 'Which of the following is not an island of Hawai`i?',
@@ -259,26 +277,29 @@ submitButton.style.display = "none";
                         'a. Hawai`i',
                         'b. Molokai',
                         'c. Kauai',
-                        'd. AotearoaCORRECT',
-                    ]
+                        'd. Aotearoa',
+                    ],
+                    correctAnswer: 3
                         },
                         {
                     question: 'What is the southernmost state in the entire United States?',
                     choices: [
                         'a. Florida',
                         'b. Texas',
-                        'c. Hawai`iCORRECT',
+                        'c. Hawai`i',
                         'd. Arizona',
-                    ]
+                    ],
+                    correctAnswer: 2
                         },
                         {
                     question: 'What is the southernmost state in the contiguous United States?',
                     choices: [
-                        'a. FloridaCORRECT',
+                        'a. Florida',
                         'b. Texas',
                         'c. Hawaii',
                         'd. Arizona',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
                         {
                     question: 'Which state in the contiguous US has the most oceanic coastline?',
@@ -286,17 +307,19 @@ submitButton.style.display = "none";
                         'a. California',
                         'b. Florida',
                         'c. Alaska',
-                        'a. MaineCORRECT',
-                    ]
+                        'a. Maine',
+                    ],
+                    correctAnswer: 3
                         },
                         {
                     question: 'Which coastal state has the least oceanic coastline?',
                     choices: [
                         'a. Rhode Island',
-                        'b. New HampshireCORRECT',
+                        'b. New Hampshire',
                         'c. Connecticut',
                         'd. Delaware',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'Which of the following states does not border Mexico?',
@@ -304,44 +327,49 @@ submitButton.style.display = "none";
                         'a. California',
                         'b. Arizona',
                         'c. Texas',
-                        'd. NevadaCORRECT',
-                    ]
+                        'd. Nevada',
+                    ],
+                    correctAnswer: 3
                         },
                         {
                     question: 'Which of the following states does not border Canada?',
                     choices: [
                         'a. Idaho',
-                        'b. NebraskaCORRECT',
+                        'b. Nebraska',
                         'c. Vermont',
                         'd. Montana',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'Which two bordering states almost directly mirror each other`s shapes?',
                     choices: [
-                        'a. Mississippi and AlabamaCORRECT',
+                        'a. Mississippi and Alabama',
                         'b. South Carolina and Georgia',
                         'c. Montana and Wyoming',
                         'd. Alabama and Georgia',
-                    ]
+                    ],
+                    correctAnswer: 0
                         },
                         {
                     question: 'What is the only state that borders one other state?',
                     choices: [
                         'a. Alaska',
-                        'b. MaineCORRECT',
+                        'b. Maine',
                         'c. Washington',
                         'd. Florida',
-                    ]
+                    ],
+                    correctAnswer: 1
                         },
                         {
                     question: 'What state is divided into two peninsulas?',
                     choices: [
                         'a. Wisconsin',
                         'b. North Carolina',
-                        'c. MichiganCORRECT',
+                        'c. Michigan',
                         'd. South Carolina',
-                    ]
+                    ],
+                    correctAnswer: 2
                         },
                 ]
                          
@@ -390,6 +418,18 @@ function getQuestions(){
         //questionBank.push(data[randomIndex]);
     }
     console.log(questionBank);
+    displayQuestion(questionBank);
+
+    $(document).ready(function(){
+        $('#quiz_questions').slick({
+            infinite: false, // Set to false to not loop
+            slidesToShow: 1, // Show one question at a time
+            slidesToScroll: 1, // Scroll one question at a time
+            arrows: true, // Show next/prev arrows
+            dots: true, // Show dots navigation
+        });
+    });
+ 
 }
 
 
@@ -411,7 +451,48 @@ function getQuestions(){
            // const questionElement = quizBody.querySelector(".question_one p");
            // const questionContainer = quizBody.querySelector(".question_one");
 
-            questionElement.textContent = questionData.question;
+
+            questionData.forEach( item => {
+                const div = document.createElement('div');
+                const p = document.createElement('p');
+                p.textContent = item.question;
+                
+                const input = document.createElement("input");
+                input.setAttribute('type','radio')
+                input.name = `q${item.index + 1}`;
+                input.value = item.choices[0];
+                const label = document.createElement("label");
+                
+                const lineBreak = document.createElement("br");
+                div.appendChild(p);
+                div.appendChild(input);
+
+const questionOptionsDiv = document.createElement('div');
+item.choices.forEach((choice, index) => {
+    const answerOptionDiv = document.createElement('div');
+    const answerOptionInput = document.createElement("input");
+    answerOptionInput.setAttribute('type', 'radio');
+    answerOptionInput.name = `q${item.index +1}`;
+    answerOptionInput.id = `choice_${item.index + 1}_${index}`;
+
+    const optionLabel = document.createElement("label");
+    optionLabel.setAttribute("for", answerOptionInput.id);
+    optionLabel.textContent = choice;
+
+    answerOptionDiv.appendChild(answerOptionInput);
+    answerOptionDiv.appendChild(optionLabel);
+    questionOptionsDiv.appendChild(answerOptionDiv);
+
+});
+        div.appendChild(questionOptionsDiv);
+         quizBody.appendChild(div);
+                
+
+            });
+
+
+
+            
 
            // questionContainer.querySelectorAll("label, input, br").forEach(el => el.remove());
 
