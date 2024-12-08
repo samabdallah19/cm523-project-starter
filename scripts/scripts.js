@@ -1,6 +1,40 @@
 /* WRITE YOUR JS HERE... YOU MAY REQUIRE MORE THAN ONE JS FILE. IF SO SAVE IT SEPARATELY IN THE SCRIPTS DIRECTORY */
 
+$("path, circle").hover(function(e) {
+    $('#info-box').css('display','block');
+    $('#info-box').html($(this).data('info'));
+  });
+  
+  $("path, circle").mouseleave(function(e) {
+    $('#info-box').css('display','none');
+  });
+  
+  $(document).mousemove(function(e) {
+    $('#info-box').css('top',e.pageY-$('#info-box').height()-30);
+    $('#info-box').css('left',e.pageX-($('#info-box').width())/2);
+  }).mouseover();
+  
+  var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  if(ios) {
+    $('a').on('click touchend', function() { 
+      var link = $(this).attr('href');   
+      window.open(link,'_blank');
+      return false;
+    });
+  }
 
+const showMapButton = document.querySelector('.show_map_button');
+const codepenMap = document.querySelector('#g5');
+
+showMapButton.addEventListener('click', () => {
+    codepenMap.classList.toggle('show'); 
+
+    if (codepenMap.classList.contains('show')) {
+        showMapButton.textContent = "HIDE MAP";
+    } else {
+        showMapButton.textContent = "SHOW MAP";
+    }
+});
 
 
 const quizBody = document.getElementById("quiz_questions");
