@@ -21,7 +21,7 @@ $("path, circle").hover(function(e) {
       window.open(link,'_blank');
       return false;
     });
-  }
+}
 
 const showMapButton = document.querySelector('.show_map_button');
 const codepenMap = document.querySelector('#g5');
@@ -162,7 +162,7 @@ const submitButton = document.getElementById("submitbutton");
                    correctAnswer: 1
                        },
                        {
-                   question: '14. North Carolina is bigger than South Carolina?',
+                   question: 'North Carolina is bigger than South Carolina?',
                    choices: [
                        'True',
                        'False',
@@ -287,7 +287,7 @@ const submitButton = document.getElementById("submitbutton");
                        'a. Maine',
                        'b. Alaska',
                        'c. Florida',
-                       'd. North Carolina<',
+                       'd. North Carolina',
                    ],
                    correctAnswer: 1
                        },
@@ -415,9 +415,9 @@ const submitButton = document.getElementById("submitbutton");
                        
 
 
-       const button = document.getElementById("playbutton");
+const button = document.getElementById("playbutton");
      
-      button.addEventListener('click', getQuestions );
+button.addEventListener('click', getQuestions );
       /*
        button.addEventListener("click", function () {
            let questionBank = [];
@@ -446,8 +446,6 @@ const submitButton = document.getElementById("submitbutton");
 
 function getQuestions(){
     quizBody.innerHTML = "";
-
-
    let questionBank = [];
    const selectedQuestionsIndex = [];
    let limit = 8;
@@ -463,31 +461,34 @@ function getQuestions(){
            selectedQuestionsIndex.push(randomIndex);
            questionBank.push(data[randomIndex]);
        }
-
-
        //questionBank.push(data[randomIndex]);
    }
    console.log(questionBank);
    displayQuestion(questionBank);
 
-   questionData.forEach(item => {
+  /* questionData.forEach(item => {
         const slide = document.createElement('div');
         slide.classList.add('slide');
+        console.log(item.choices);
+
         slide.innerHTML = `
             <p>${item.question}</p>
             <div class="question-options">
-                ${item.choices.map((choice, index) => `
+                ${item.choices.forEach((choice, index) => `
                     <div>
-                        <input type="radio" id="choice_${item.index + 1}_${index}" name="q${item.index + 1}" value="${choice}">
-                        <label for="choice_${item.index + 1}_${index}">${choice}</label>
+                        <input type="radio" id="choice_${choice.index + 1}_${index}" name="q${choice.index + 1}" value="${choice}">
+                        <label for="choice_${choice.index + 1}_${index}">${choice}</label>
                     </div>
                 `).join('')}
             </div>
         `;
-        quizQuestionsContainer.appendChild(slide);
-    });
+        quizQuestionsContainer.appendChild(slide); 
+    }); */
 
     // stuff to initialize slick
+
+
+    /*
    $('#quiz_questions').slick('unslick');
    $('#quiz_questions').slick({
     infinite: false,
@@ -496,52 +497,116 @@ function getQuestions(){
     arrows: true,
     dots: true,
     });
+    */
+} // end getQuestions
 
-}
-
-       nextButton.addEventListener("click", function () {
+     /*  
+     nextButton.addEventListener("click", function () {
            const randomIndex = getRandomInt(0, 35);
            const selectedQuestion = data[randomIndex];
            displayQuestion(selectedQuestion);
        });
+       */
 
        function getRandomInt(min,max) {
            return Math.floor(Math.random() * (max - min + 1)) + min;
        }
 
-       function displayQuestion(questionData) {
+function displayQuestion(questionData) {
+    console.log('display question');
           // const questionElement = quizBody.querySelector(".question_one p");
           // const questionContainer = quizBody.querySelector(".question_one"):
-
-           questionData.forEach( item => {
-               const div = document.createElement('div');
+    let questionCounter = 1;
+           questionData.forEach( (item, index) => {
+               const slide = document.createElement('div');
+               slide.classList.add('slide');
                const p = document.createElement('p');
                p.textContent = item.question;
-              
-               const input = document.createElement("input");
+               slide.appendChild(p);
+
+            item.choices.forEach( choice => {
+                const input = document.createElement("input");
+                input.setAttribute('type','radio')
+                console.log(index);
+                input.name = `q${questionCounter}`;
+                input.value = index;
+                input.id = `q${questionCounter}_choice${index}`;
+                const label = document.createElement('label');
+                label.setAttribute("for", input.id);
+                label.textContent = choice;
+                const lineBreak = document.createElement("br");
+
+
+                
+
+                slide.appendChild(input);
+                slide.appendChild(label);
+                quizBody.appendChild(slide);
+            });
+
+            /*input.addEventListener('change', () => {
+                if (parseInt(answerOptionInput.value) === item.correctAnswer) {
+                    console.log(`Correct!`);
+                } else {
+                    console.log(`Wrong! The correct answer is: ${item.choices[item.correctAnswer]}`);
+                }
+                    */
+            
+            
+            
+
+            /*  
+            const input = document.createElement("input");
                input.setAttribute('type','radio')
-               input.name = `q${item.index + 1}`;
-               input.value = item.choices[0];
-               const label = document.createElement("label");
+               console.log(index);
+               input.name = `q${questionCounter}`;
+               input.value = index;
               
                const lineBreak = document.createElement("br");
-               div.appendChild(p);
-               div.appendChild(input);
+               slide.appendChild(input);
+               quizBody.appendChild(slide);
 
+               */
+
+
+
+
+       
+               /*slide.innerHTML = `
+                   <p>${item.question}</p>
+                   <div class="question-options">
+                       ${item.choices.forEach((choice, index) => `
+                           <div>
+                               <input type="radio" id="choice_${choice.index + 1}_${index}" name="q${choice.index + 1}" value="${choice}">
+                               <label for="choice_${choice.index + 1}_${index}">${choice}</label>
+                           </div>
+                       `).join('')}
+                   </div>
+               `;*/
+               quizBody.appendChild(slide); 
+
+
+
+        
+
+/*
 
 const questionOptionsDiv = document.createElement('div');
 item.choices.forEach((choice, index) => {
    const answerOptionDiv = document.createElement('div');
    const answerOptionInput = document.createElement("input");
    answerOptionInput.setAttribute('type', 'radio');
-   answerOptionInput.name = `q${item.index +1}`;
-   answerOptionInput.id = `choice_${item.index + 1}_${index}`;
+   answerOptionInput.name = `q${index +1}`;
+   answerOptionInput.id = `choice_${index + 1}_${index}`;
    answerOptionInput.value = index;
 
 
    const optionLabel = document.createElement("label");
    optionLabel.setAttribute("for", answerOptionInput.id);
    optionLabel.textContent = choice;
+*/
+
+/*
 
    answerOptionInput.addEventListener('change', () => {
     if (parseInt(answerOptionInput.value) === item.correctAnswer) {
@@ -549,24 +614,29 @@ item.choices.forEach((choice, index) => {
     } else {
         console.log(`Wrong! The correct answer is: ${item.choices[item.correctAnswer]}`);
     }
-});
 
 
+}); */
+
+/*
    answerOptionDiv.appendChild(answerOptionInput);
    answerOptionDiv.appendChild(optionLabel);
    questionOptionsDiv.appendChild(answerOptionDiv);
-
+*/
 
 });
-       div.appendChild(questionOptionsDiv);
-        quizBody.appendChild(div);
+      // div.appendChild(questionOptionsDiv);
+      //  quizBody.appendChild(div);
               
 
 
-           });
+           }
+        
+        
+      //  );
 
-
-           questionData.choices.forEach((choice, index) => {
+/*
+           questionData.choices.forEach((choice) => {
                const label = document.createElement("label");
                const input = document.createElement("input");
                const lineBreak = document.createElement("br");
@@ -574,7 +644,7 @@ item.choices.forEach((choice, index) => {
 
                input.type = "radio";
                // input.name = `q${}`;
-               input.id = `choice${index + 1}`;
+               input.id = `choice${choice.index + 1}`;
                input.value = choice;
 
 
@@ -590,6 +660,7 @@ item.choices.forEach((choice, index) => {
                questionContainer.appendChild(lineBreak);
            });
        }
+           */
 
        document.addEventListener('DOMContentLoaded', function () {
         $('.slider').slick({  
