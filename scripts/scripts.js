@@ -446,6 +446,8 @@ const submitButton = document.getElementById("submitbutton");
 
 function getQuestions(){
     quizBody.innerHTML = "";
+
+
    let questionBank = [];
    const selectedQuestionsIndex = [];
    let limit = 8;
@@ -468,44 +470,48 @@ function getQuestions(){
    console.log(questionBank);
    displayQuestion(questionBank);
 
+   questionData.forEach(item => {
+        const slide = document.createElement('div');
+        slide.classList.add('slide');
+        slide.innerHTML = `
+            <p>${item.question}</p>
+            <div class="question-options">
+                ${item.choices.map((choice, index) => `
+                    <div>
+                        <input type="radio" id="choice_${item.index + 1}_${index}" name="q${item.index + 1}" value="${choice}">
+                        <label for="choice_${item.index + 1}_${index}">${choice}</label>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        quizQuestionsContainer.appendChild(slide);
+    });
 
-   $(document).ready(function(){
-       $('#quiz_questions').slick({
-           infinite: false, // Set to false to not loop
-           slidesToShow: 1, // Show one question at a time
-           slidesToScroll: 1, // Scroll one question at a time
-           arrows: true, // Show next/prev arrows
-           dots: true, // Show dots navigation
-       });
-   });
+    // stuff to initialize slick
+   $('#quiz_questions').slick('unslick');
+   $('#quiz_questions').slick({
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: true,
+    });
+
 }
-
-
-
 
        nextButton.addEventListener("click", function () {
            const randomIndex = getRandomInt(0, 35);
            const selectedQuestion = data[randomIndex];
            displayQuestion(selectedQuestion);
-           //nextButton.style.display = "none";
-           //mapImageContainer.style.display = "none";
-           //submitButton.style.display = "inline-block";
        });
-
-
-
 
        function getRandomInt(min,max) {
            return Math.floor(Math.random() * (max - min + 1)) + min;
        }
 
-
        function displayQuestion(questionData) {
           // const questionElement = quizBody.querySelector(".question_one p");
           // const questionContainer = quizBody.querySelector(".question_one"):
-
-
-
 
            questionData.forEach( item => {
                const div = document.createElement('div');
@@ -530,11 +536,20 @@ item.choices.forEach((choice, index) => {
    answerOptionInput.setAttribute('type', 'radio');
    answerOptionInput.name = `q${item.index +1}`;
    answerOptionInput.id = `choice_${item.index + 1}_${index}`;
+   answerOptionInput.value = index;
 
 
    const optionLabel = document.createElement("label");
    optionLabel.setAttribute("for", answerOptionInput.id);
    optionLabel.textContent = choice;
+
+   answerOptionInput.addEventListener('change', () => {
+    if (parseInt(answerOptionInput.value) === item.correctAnswer) {
+        console.log(`Correct!`);
+    } else {
+        console.log(`Wrong! The correct answer is: ${item.choices[item.correctAnswer]}`);
+    }
+});
 
 
    answerOptionDiv.appendChild(answerOptionInput);
@@ -549,16 +564,6 @@ item.choices.forEach((choice, index) => {
 
 
            });
-
-
-
-
-
-
-          
-
-
-          // questionContainer.querySelectorAll("label, input, br").forEach(el => el.remove());
 
 
            questionData.choices.forEach((choice, index) => {
@@ -586,6 +591,16 @@ item.choices.forEach((choice, index) => {
            });
        }
 
+       document.addEventListener('DOMContentLoaded', function () {
+        $('.slider').slick({  
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true, 
+          autoplaySpeed: 2000, 
+          dots: true,  
+          arrows: true
+        }); 
+      });  
 
      
   
