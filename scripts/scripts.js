@@ -466,7 +466,7 @@ function getQuestions(){
    console.log(questionBank);
    displayQuestion(questionBank);
 
-  /* questionData.forEach(item => {
+  /*  questionData.forEach(item => {
         const slide = document.createElement('div');
         slide.classList.add('slide');
         console.log(item.choices);
