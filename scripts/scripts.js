@@ -535,14 +535,20 @@ function displayQuestion(questionData) {
                slide.classList.add('slide');
                const p = document.createElement('p');
                p.textContent = item.question;
+               p.style.fontWeight = 'bold';
                slide.appendChild(p);
 
-            item.choices.forEach( choice => {
+               // Add feedback element
+    const feedback = document.createElement('p');
+    feedback.classList.add('feedback');
+    slide.appendChild(feedback);
+
+               item.choices.forEach((choice, choiceIndex )=> {
                 const input = document.createElement("input");
                 input.setAttribute('type','radio')
                 console.log(index);
                 input.name = `q${questionCounter}`;
-                input.value = index;
+                input.value = choiceIndex;
                 input.id = `q${questionCounter}_choice${index}`;
                 const label = document.createElement('label');
                 label.setAttribute("for", input.id);
@@ -550,8 +556,25 @@ function displayQuestion(questionData) {
                 
                 const lineBreak = document.createElement("br");
 
+                input.addEventListener('click', () => {
+                    // Clear any previous feedback
+                    feedback.textContent = "";
 
-                
+                    const selectedValue = parseInt(input.value, 10);
+
+                    // Check if the answer is correct
+                    if (selectedValue === item.correctAnswer) {
+                        feedback.textContent = "Correct!";
+                        feedback.style.color = "green";
+                    } else {
+                        feedback.textContent = `Incorrect, correct answer is: ${item.choices[item.correctAnswer]}`;
+                        feedback.style.color = "red";
+                    }
+        
+                    // Disable all radio buttons for this question
+                    const allInputs = document.querySelectorAll(`input[name="q${questionCounter}"]`);
+                    allInputs.forEach(input => input.disabled = true);
+                });
 
                 slide.appendChild(input);
                 slide.appendChild(label);
@@ -559,21 +582,7 @@ function displayQuestion(questionData) {
             });
                 questionCounter++; 
                     
-            /*    submitButton.addEventListener('click', () => {
-                    const selectedOption = document.querySelector(`input[name="q${questionCounter}"]:checked`);
-                    if (selectedOption) {
-                        const selectedValue = parseInt(selectedOption.value);
-                        if (selectedValue === item.correctAnswer) {
-                            console.log(`Correct!`);
-                        } else {
-                            console.log(`Wrong! The correct answer is: ${item.choices[item.correctAnswer]}`);
-                        }
-                    } else {
-                        console.log("Please select an answer.");
-                    }
-                });
-            
-                slide.appendChild(submitButton);*/
+               
             
             
 
@@ -588,7 +597,7 @@ function displayQuestion(questionData) {
                slide.appendChild(input);
                quizBody.appendChild(slide);
 
-               */
+               /* 
 
 
 

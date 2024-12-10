@@ -15,6 +15,10 @@ h1 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+
+
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -81,12 +85,29 @@ ul {
   color: #fff;
 }
 
+input[type="radio"] {
+  margin-bottom: 10px;  /* Adds space between radio buttons */
+}
 
 #quiz_questions {
   width: 80%;
   margin: 0 auto;
   text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    width: 80%; 
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 
 #about_body {
