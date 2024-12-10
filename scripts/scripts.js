@@ -513,6 +513,19 @@ function getQuestions(){
        }
 
 function displayQuestion(questionData) {
+
+    
+        $('.slider').slick({  
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: false, 
+          dots: true,  
+          arrows: true
+        }); 
+       
+
+
+
     console.log('display question');
           // const questionElement = quizBody.querySelector(".question_one p");
           // const questionContainer = quizBody.querySelector(".question_one"):
@@ -534,6 +547,7 @@ function displayQuestion(questionData) {
                 const label = document.createElement('label');
                 label.setAttribute("for", input.id);
                 label.textContent = choice;
+                
                 const lineBreak = document.createElement("br");
 
 
@@ -543,15 +557,23 @@ function displayQuestion(questionData) {
                 slide.appendChild(label);
                 quizBody.appendChild(slide);
             });
-
-            /*input.addEventListener('change', () => {
-                if (parseInt(answerOptionInput.value) === item.correctAnswer) {
-                    console.log(`Correct!`);
-                } else {
-                    console.log(`Wrong! The correct answer is: ${item.choices[item.correctAnswer]}`);
-                }
-                    */
+                questionCounter++; 
+                    
+            /*    submitButton.addEventListener('click', () => {
+                    const selectedOption = document.querySelector(`input[name="q${questionCounter}"]:checked`);
+                    if (selectedOption) {
+                        const selectedValue = parseInt(selectedOption.value);
+                        if (selectedValue === item.correctAnswer) {
+                            console.log(`Correct!`);
+                        } else {
+                            console.log(`Wrong! The correct answer is: ${item.choices[item.correctAnswer]}`);
+                        }
+                    } else {
+                        console.log("Please select an answer.");
+                    }
+                });
             
+                slide.appendChild(submitButton);*/
             
             
 
@@ -661,18 +683,17 @@ item.choices.forEach((choice, index) => {
            });
        }
            */
-
+/*
        document.addEventListener('DOMContentLoaded', function () {
         $('.slider').slick({  
           slidesToShow: 1,
           slidesToScroll: 1,
-          autoplay: true, 
-          autoplaySpeed: 2000, 
+          autoplay: false, 
           dots: true,  
           arrows: true
         }); 
       });  
-
+*/
      
   
 /*
