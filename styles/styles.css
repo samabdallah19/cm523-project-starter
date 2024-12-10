@@ -234,12 +234,12 @@ path:hover, circle:hover {
 
 .bottom_text {
   display: flex;
-  justify-content: center; /* Center the text horizontally */
-  align-items: center; /* Align text vertically */
-  position: fixed; /* Fix the container at the bottom */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
   bottom: 20px;
   width: 100%;
-  z-index: 10; /* Ensure the text is on top */
+  z-index: 10; 
 }
 
 .bottom_link {
@@ -252,11 +252,55 @@ path:hover, circle:hover {
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  text-decoration: none; /* Remove underline from links */
-  margin: 0 10px; /* Space between each link */
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 .bottom_link:hover {
   background-color: #4CAF50;
   color: #fff;
 }
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left_paragraph {
+  width: 45%;
+  margin-right: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.sources_section {
+  width: 45%; 
+  text-align: left;
+  padding: 10px;
+  box-sizing: border-box;
+  line-height: 2;
+  font-size: 2em;
+}
+
+.body_paragraph {
+  font-family: 'Rubik', sans-serif; 
+  line-height: 2;
+  text-align: justify;
+  color: #333;
+  text-indent: 35px;
+}
+
+
+.beaver {
+  text-decoration: none;
+  color: #CC5500;
+}
+
+.slick_link {
+  text-decoration: none;
+  color: #CC5500;
+}
+
