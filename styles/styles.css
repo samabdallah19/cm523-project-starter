@@ -85,10 +85,6 @@ ul {
   color: #fff;
 }
 
-input[type="radio"] {
-  margin-bottom: 10px;  /* Adds space between radio buttons */
-}
-
 #quiz_questions {
   width: 80%;
   margin: 0 auto;
@@ -160,7 +156,7 @@ a.home_button:hover {
   left: 0;
   width: 100%;
   height: auto;
-  max-width: 100%;    /* Makes it responsive */
+  max-width: 100%; 
 
 }
 path:hover, circle:hover {

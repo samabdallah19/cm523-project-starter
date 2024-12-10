@@ -554,15 +554,14 @@ function displayQuestion(questionData) {
                 label.setAttribute("for", input.id);
                 label.textContent = choice;
                 
+                
                 const lineBreak = document.createElement("br");
 
                 input.addEventListener('click', () => {
-                    // Clear any previous feedback
                     feedback.textContent = "";
 
                     const selectedValue = parseInt(input.value, 10);
 
-                    // Check if the answer is correct
                     if (selectedValue === item.correctAnswer) {
                         feedback.textContent = "Correct!";
                         feedback.style.color = "green";
@@ -571,7 +570,6 @@ function displayQuestion(questionData) {
                         feedback.style.color = "red";
                     }
         
-                    // Disable all radio buttons for this question
                     const allInputs = document.querySelectorAll(`input[name="q${questionCounter}"]`);
                     allInputs.forEach(input => input.disabled = true);
                 });
