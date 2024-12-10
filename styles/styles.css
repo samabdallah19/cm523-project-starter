@@ -15,10 +15,6 @@ h1 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-
-
-
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -236,4 +232,31 @@ path:hover, circle:hover {
   line-height: 1.5;
 }
 
+.bottom_text {
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Align text vertically */
+  position: fixed; /* Fix the container at the bottom */
+  bottom: 20px;
+  width: 100%;
+  z-index: 10; /* Ensure the text is on top */
+}
 
+.bottom_link {
+  background-color: transparent;
+  border: 2px solid #333;
+  color: #333;
+  border-radius: 5px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-decoration: none; /* Remove underline from links */
+  margin: 0 10px; /* Space between each link */
+}
+
+.bottom_link:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
